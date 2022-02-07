@@ -1,5 +1,5 @@
 module Api
-  class MemoController < ApplicationController
+  class MemosController < ApplicationController
     before_action :logged_in_user, only: [:create, :destroy]
     before_action :correct_user,   only: :destroy
 
@@ -19,7 +19,7 @@ module Api
     private
 
     def memo_params
-      params.require(:micropost).permit(:content)
+      params.require(:memo).permit(:content)
     end
 
     def correct_user
