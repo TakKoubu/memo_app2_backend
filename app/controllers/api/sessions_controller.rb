@@ -14,7 +14,6 @@ module Api
 
     def destroy
       log_out
-      
     end
   end
 end
