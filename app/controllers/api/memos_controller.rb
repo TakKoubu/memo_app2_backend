@@ -6,8 +6,7 @@ module Api
     end
 
     def create
-      user = User.find(1)
-      memo = user.memos.build(memo_params)
+      memo = current_user.memos.build(memo_params)
       if memo.save
         render json: memo
       else
@@ -16,7 +15,10 @@ module Api
     end
   
     def destroy
-      memo.destroy
+      # 削除するメモのIDを特定する
+      # そのメモを削除する
+      memo = Memo.find(params[:id])
+      memo.destroy!
     end
 
     private
@@ -24,9 +26,5 @@ module Api
     def memo_params
       params.require(:memo).permit(:content)
     end
-
-    # def correct_user
-    #   memo = current_user.memos.find_by(id: params[:id])
-    # end
   end
 end
