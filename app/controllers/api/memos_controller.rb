@@ -1,8 +1,8 @@
 module Api
   class MemosController < ApplicationController
-
+    
     def index
-      render json: Memo.all
+      render json: Memo.includes(:favorites).all
     end
 
     def create
