@@ -5,7 +5,7 @@ class Memo < ApplicationRecord
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 140 }
 
-  def favoriteCount
+  def favorite_count
     self.favorites.count
   end
 
