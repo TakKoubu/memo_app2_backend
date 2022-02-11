@@ -10,7 +10,6 @@ module Api
     def destroy
       # いいねを取り消すメモのIDを特定する
       # current_userがfavorite destoryアクションを投げる
-      # binding.pry
       memo = Memo.find(params[:id])
       current_user.unfavorite(memo)
     end
