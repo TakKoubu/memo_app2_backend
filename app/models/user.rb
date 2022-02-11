@@ -16,6 +16,11 @@ class User < ApplicationRecord
     self.favorites.find_or_create_by(memo_id: memo.id)
   end
 
+  def unfavorite(memo)
+    favorite = self.favorites.find_by(memo_id: memo.id)
+    favorite.destroy if favorite
+  end
+  
   def favoriting?(memo)
     self.favorite_memos.include?(memo)
   end
