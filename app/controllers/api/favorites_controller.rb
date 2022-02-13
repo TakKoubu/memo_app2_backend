@@ -1,5 +1,6 @@
 module Api 
- class FavoritesController < ApplicationController
+ class FavoritesController < ApplicationController    
+
     def create
       # いいねするメモのIDを特定する
       memo = Memo.find(params[:memo_id])
