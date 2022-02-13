@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_10_044512) do
+ActiveRecord::Schema.define(version: 2022_02_13_035549) do
 
   create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2022_02_10_044512) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "favorite_count"
     t.index ["user_id", "created_at"], name: "index_memos_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_memos_on_user_id"
   end
