@@ -9,7 +9,7 @@ module Api
        # memo.favorites.count
        # memo.favorite_count
        if current_user.favorite(memo)
-         render json: { favorite_count: memo.favorite_count }
+         render json: { favorite_count: memo.favorites.count }
        else
          render json: favorite.errors, status: 422
        end
@@ -20,7 +20,7 @@ module Api
        memo = Memo.find(params[:id])
        # current_userがfavorite destoryアクションを投げる
        if current_user.unfavorite(memo)
-         render json: { favorite_count: memo.favorite_count }
+         render json: { favorite_count: memo.favorites.count }
        end 
      end
    end
